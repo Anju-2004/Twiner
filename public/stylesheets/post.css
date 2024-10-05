@@ -1,0 +1,124 @@
+.tweets_outer {
+    padding: 20px;
+    /* background-color: #6643b5; */
+    overflow: scroll;
+    background-color: #2e2e6fe0;
+    border-radius: 10px;
+}
+.tweets_inner {
+    background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+    border-radius: 10px;
+    margin: 50px;
+}
+
+.tweets-container {
+    
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.tweet h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 26px;
+    color: #7B014C;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.tweet p{
+    font-size: 16px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.tweet img{
+    max-width: 26vw;
+    max-height: 26vw;
+    margin-left: 100px;
+    margin-right: 20px;
+    border-radius: 10px;
+} 
+
+.tweet button {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+    margin: 10px;
+    margin-top: 10px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 10px;
+    margin-left: 40px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    text-decoration: none;
+}
+.tweet button:hover{
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+
+/* update button */
+.logout_btn_up {
+    /* margin-right: -400px; */
+    margin-left: -200px;
+    z-index: 200;
+}
+.sub_button_up {
+    /* margin-left: 300px; */
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.submit-btn_up,
+.submit-btn_up a {
+    width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 30px;
+    margin-top: 16px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    text-decoration: none;
+}
+
+.submit-btn_up:focus {
+    outline: none;
+}
+
+.color-blue_up {
+    background-image: linear-gradient(-20deg, #d558c8 0%, #24d292 100%);
+    box-shadow: 0 4px 15px 0 rgba(174, 32, 112, 0.642);
+}
+
+.color-blue_up:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}

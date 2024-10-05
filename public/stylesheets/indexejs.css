@@ -1,0 +1,98 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.login {
+    margin-top: 12vh;
+    height: calc(80vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.wrapper {
+    width: 60%;
+    height: 90%;
+    box-shadow: 0px 5px 33px -21px rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.login_title {
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    margin-top: -10vh;
+}
+
+.input_login {
+    width: 200px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #000000;
+}
+
+.input_login:hover {
+    border-color: #ffffff;
+}
+
+.input_login:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.input_login::placeholder {
+    color: #ffffff;
+    font-style: italic;
+    transition: color 0.3s ease, font-style 0.3s ease;
+}
+
+.submit-btn,
+.submit-btn a {
+    width: 180px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 4px;
+    margin-top: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    transition: all .4s ease-in-out;
+    text-decoration: none;
+}
+
+.submit-btn:focus {
+    outline: none;
+}
+
+.color-blue {
+    background-image: linear-gradient(to right, #000000, #000000);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.75);
+}
+
+.color-blue:hover {
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+}
