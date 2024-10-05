@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <link rel="stylesheet" href="/stylesheets/post.css" />
+    <title>Twiddle</title>
+</head>
+
+<body>
+    <div class="home_container">
+        <div class="navbar_main">
+            <div class="nav_logo">
+                <img src="./images/logo_1.png" />
+            </div>
+            <!-- searching -->
+            <!-- <div class="search-container">
+                <form action="/search" method="post">
+                    <input type="text" placeholder="Search..." name="query" class="search-bar" />
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div> -->
+
+            <div class="logout_btn">
+                <button class="submit submit-btn color-blue">
+                    <a href="/" >Logout</a>
+                </button>
+            </div>
+            <div method="get" class="logout_btn_up ">
+                <button type="button" class="update submit_up submit-btn_up color-blue_up ">
+                    <a href="updateprofile">Update </a>
+                </button>
+            </div>
+
+            <div class="img_logo">
+                <img src="<%= pic %>" class="user_img" alt="userz image" />
+            </div>
+        </div>
+        <div class="nothing"></div>
+        <!-- home_body -->
+        <div class="home_body">
+            <!-- div 1 -->
+            <!-- div 1 -->
+            <div class="div_1 user_dash">
+                <div class="div_1_inner">
+                    <!-- <div class="area">
+                        <ul class="circles">
+                            
+                        </ul>
+
+                        <div class="admin">
+                            <img src="<%= pic %>" class="admin" alt="userz image" />
+                        </div>
+                        <div class="user_name">
+                            <h2>Welcome <%= username%>
+                            </h2>
+                        </div>
+                        <div class="user_des">
+                            Description:
+                            <h4>
+                                <%= discription %>
+                            </h4>
+                        </div>
+                        <div method="get">
+                            <button type="button" class="update">
+                                <a href="updateprofile">Update </a>
+                            </button>
+                        </div>
+                    </div> -->
+                    <!-- <div class="nothing_1"></div> -->
+                    <!-- post tweets -->
+                    <div class="div_3">
+
+                        <form action="/tweets" method="post" enctype="multipart/form-data">
+                            <div class="user_name">
+                                <h2>Welcome <%= username%>
+                                </h2>
+                            </div>
+                            <h3>Post your tweets here:</h3>
+                            <input type="text" name="twheading" id="twheading" placeholder="heading" />
+                            <br />
+                            <br />
+                            <textarea name="twtext" placeholder="Write Here"> </textarea>
+                            <br /><br />
+                            <input type="file" name="media" id="media" /><br><br>
+
+                            <input type="text" name="hashtags" id="hashtags" placeholder="#hashtags" /><br><br>
+                            <input type="text" name="mentions" id="mentions" placeholder="@mentions" /><br><br>
+                            <input type="submit" value="Send Tweet" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- div 2 -->
+            <div class="div_2">
+                <div class="tweets_outer">
+                    <div class="tweets_inner">
+                        <div id="tweets-container" class="tweets-container">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+
+    </div>
+    </div>
+</body>
+<!-- <script defer>
+    fetch("/tweets/alltweets", {
+        method: "GET",
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            // Process the response data and render tweets
+            console.log(data);
+            const tweetsContainer = document.getElementById("tweets-container");
+            data.forEach((tweet) => {
+                const tweetElement = document.createElement("div");
+                tweetElement.setAttribute("title", tweet.twheading);
+                // tweetElement.setAttribute(tweet.twtext);
+                // tweetElement.textContent = tweet.media;
+                // tweetElement.textContent = tweet.numlikes;
+                // tweetElement.textContent = tweet.numretweets;
+                tweetsContainer.appendChild(tweetElement);
+            });
+        })
+        .catch((error) => {
+            console.error("Error fetching tweets:", error);
+        });
+</script> -->
+<script defer>
+    // event.preventDefault();
+    fetch("/tweets/alltweets", {
+        method: "GET",
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            // Process the response data and render tweets
+            console.log(data);
+            const tweetsContainer = document.getElementById("tweets-container");
+            data.forEach((tweet) => {
+                const tweetElement = document.createElement("div");
+                tweetElement.classList.add("tweet");
+
+                // Tweet Heading
+                const headingElement = document.createElement("h3");
+                headingElement.textContent = tweet.twheading;
+                tweetElement.appendChild(headingElement);
+
+                // Tweet Description
+                const descriptionElement = document.createElement("p");
+                descriptionElement.textContent = tweet.twtext;
+                tweetElement.appendChild(descriptionElement);
+
+                // Tweet Picture
+                if (tweet.media) {
+                    const pictureElement = document.createElement("img");
+                    pictureElement.src = tweet.media;
+                    tweetElement.appendChild(pictureElement);
+                }
+
+                // hashtags
+                const hashElement = document.createElement("p");
+                hashElement.textContent = tweet.hashtags;
+                tweetElement.appendChild(hashElement);
+                // mentions
+                const mentions = document.createElement("p");
+                mentions.textContent = tweet.mentions;
+                tweetElement.appendChild(mentions);
+
+                // // Tweet Likes
+                // const likesElement = document.createElement("p");
+                // likesElement.textContent = "Likes: " + tweet.numlikes;
+                // tweetElement.appendChild(likesElement);
+
+                // // Tweet Retweets
+                // const retweetsElement = document.createElement("p");
+                // retweetsElement.textContent = "Retweets: " + tweet.numretweets;
+                // tweetElement.appendChild(retweetsElement);
+
+                // const button = document.createElement("button");
+                // button.textContent = "Like";
+                // tweetElement.appendChild(button);
+                // const button1 = document.createElement("button");
+                // button1.textContent = "Retweet";
+                // tweetElement.appendChild(button1);
+
+                tweetsContainer.appendChild(tweetElement);
+            });
+        })
+        .catch((error) => {
+            console.error("Error fetching tweets:", error);
+        });
+</script>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <title>Twiddle</title>
+</head>
+
+<body>
+    <div class="signup_container">
+        <div class="wrapper">
+            <div class="left">
+                <div class="acc_h1">
+                    <h1>Create Your Account</h1>
+                </div>
+            </div>
+            <div class="right">
+                <div class="title_container">
+                    <img src="https://img.freepik.com/free-vector/gdpr-concept-illustration_114360-1028.jpg?t=st=1710263081~exp=1710266681~hmac=36a28e551f21087866aaf7b773b016e65af6effce11357be76a7ee045c46fd07&w=740" />
+                </div>
+                <div class="acc_section">
+                    <form action="/createAccount" method="post" enctype="multipart/form-data">
+                        <!-- multipart/form-data - allows to upload files -->
+                        <input type="text" name="username" id="username" class="input_signup" placeholder="Username">
+                        
+                        <div id="avlmessages" style="text-align: center;"></div>
+                        <br>
+                        <input type="password" name="password" id="password" required class="input_signup" placeholder="Password">
+                        <br><br>
+                        <input type="password" name="confirm_password" id="confirm_password" required class="input_signup" placeholder="Confirm Password">
+                        <br> <br>
+                        <input type="email" name="email" id="email" class="input_signup"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder=" Email">
+                        <br> 
+                        Gender : 
+                        <input type="radio" name="gender" id="male" value="male" ><label
+                            for="male"> Male
+                        </label>
+                        <input type="radio" name="gender" id="female"  value="female"><label
+                            for="female">Female</label>
+                        <input type="radio" id="other" name="gender"  value="other"><label
+                            for="other">Other</label><br><br>
+                        <input type="tel" name="phoneNo" id="phoneNo" class="input_signup" pattern="[0-9]{10}" placeholder="Phone Number"><br>
+                        Picture : <input type="file" name="pic" id="pic" ><br>
+                        <br>
+                        <input type="text" name="profiletext" id="profiletext" class="input_signup" placeholder="Profile Text"><br>
+                        <div class="sub_button">
+                        <button onclick="checkAvailable()" class="submit submit-btn color-blue"> Check Availability</button>
+                        <button type="submit" class="submit submit-btn color-blue">SignUp</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function checkAvailable() {
+        event.preventDefault();
+        var username = document.getElementById('username').value;
+        fetch('/checkAvailable', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username: username })
+        })
+            .then(res => res.json())
+            .then(res => {
+                let message = document.getElementById('avlmessages');
+                if (res.available) {
+                    message.innerHTML = "Username is available";
+                }
+                else {
+                    message.innerHTML = "Username is not available";
+                }
+            })
+
+    }
+</script>
+
+</html>
