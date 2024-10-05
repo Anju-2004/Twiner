@@ -1,72 +1,8 @@
-.main_container {
-  /* padding: 50px; */
-  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
-  /* padding-top: -10px; */
-
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.navbar_container {
-  display: flex;
-  /* flex-direction: row; */
-  justify-content: space-between;
-  align-items: center;
-  margin-top: -2vh;
-
-  /* color: #f2e9e4; */
-  /* padding-top: 0.1vh; */
-}
-/* .pacifico-regular {
-  font-family: "Pacifico", cursive;
-  font-weight: 400;
-  font-style: normal;
-} */
-.shadows-into light-regular {
-  font-family: "Shadows Into Light", cursive;
-  font-weight: 400;
-  font-style: normal;
-  /* margin-top: -10vh; */
-}
-
-/* <uniquifier>: Use a unique and descriptive class name
-<weight>: Use a value from 400 to 700 */
-
-/* .caveat-heading {
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-} */
-
-.title_container {
-  /* padding-top: -2vh; */
-  margin-top: -2vh;
-  margin-left: -1vw;
-  
-}
-.title_container img{
-  width: 26vw;
-  height: 46vh;
-}
-.idx_div {
-  display: flex;
-  flex-direction: column;
-}
-
-.create_btn {
-  /* margin-top: 100px; */
-  margin-left: 240px;
-  margin-top: -80px;
-  /* margin-right: -100px; */
-  /* padding: 100px; */
-}
-form {
-  margin-left: 30px;
-  margin-top: 3vh;
-}
-/* .ueername_container {
-  margin-right: 2vh;
-  margin-top: -2vh;
-}
 a {
   color: #00B7FF;
-} */
+}
